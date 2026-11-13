@@ -73,7 +73,7 @@ flowchart TD
 
 ---
 
-## 🚀 Instalação Rápida em 1 Clique
+## 🚀 Instalação Rápida (Modular & Interativa)
 
 Para configurar qualquer máquina Windows do zero com todas as ferramentas, binários Rust, scripts e perfis de console:
 
@@ -82,24 +82,40 @@ Para configurar qualquer máquina Windows do zero com todas as ferramentas, bin�
    git clone https://github.com/Mattttfb/antigravity-vibe-coding-toolkit.git
    cd antigravity-vibe-coding-toolkit
    ```
-2. Execute o instalador automático:
+2. Escolha o modo de instalação que preferir:
    ```powershell
+   # Instalação completa padrão (Recomendado):
    powershell -ExecutionPolicy Bypass -File .\setup.ps1
+
+   # Modo Interativo (escolha manualmente o que quer instalar):
+   powershell -ExecutionPolicy Bypass -File .\setup.ps1 -Interactive
+
+   # Instalação apenas para Frontend / Web:
+   powershell -ExecutionPolicy Bypass -File .\setup.ps1 -Profile FrontendOnly
+
+   # Instalação apenas para Backend / APIs:
+   powershell -ExecutionPolicy Bypass -File .\setup.ps1 -Profile BackendOnly
    ```
 
-### 🔄 Como Atualizar sua Máquina (Para Usuários e Outros PCs)
+---
 
-Sempre que novas melhorias, ferramentas ou skills forem adicionadas ao repositório, basta abrir a pasta e rodar:
+## 🔔 Notificações & Atualizações
 
+### Como ser notificado de novas versões:
+- No GitHub, clique no botão **Watch** (no topo da página) $\rightarrow$ selecione **Custom** $\rightarrow$ marque **Releases**. O GitHub avisará por e-mail e no app sempre que uma nova versão do Toolkit for lançada.
+- No terminal do PowerShell 7, basta digitar `check-toolkit-update` a qualquer momento para checar novidades.
+
+### 🔄 Como Atualizar ou Escolher Versões:
 ```powershell
+# 1. Atualizar para a versão mais recente:
 powershell -ExecutionPolicy Bypass -File .\update.ps1
-```
 
-O script cuidará de tudo:
-- Faz `git pull` das novidades.
-- Atualiza os pacotes e formatadores (`uv`, `ruff`, `biome`, etc.).
-- Sincroniza as novas skills para a pasta global de agentes (`~/.gemini/config/skills`).
-- Atualiza os scripts do toolkit e os atalhos do PowerShell 7.
+# 2. Atualização Interativa (escolha o que quer atualizar):
+powershell -ExecutionPolicy Bypass -File .\update.ps1 -Interactive
+
+# 3. Voltar ou fixar em uma versão específica (ex: v1.0.0):
+powershell -ExecutionPolicy Bypass -File .\update.ps1 -Version v1.0.0
+```
 
 ---
 

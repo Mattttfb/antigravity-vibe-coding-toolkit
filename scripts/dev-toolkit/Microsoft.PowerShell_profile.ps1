@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # PowerShell 7 Developer Profile - Antigravity Toolkit
 # ==============================================================================
 
@@ -92,4 +92,15 @@ function seed-data {
     }
 }
 
-Write-Host "Antigravity Dev Toolkit loaded! Commands: scaffold-api, scaffold-web, scaffold-cli, seed-data, tunnel, lg, gs, gl" -ForegroundColor Cyan
+function check-toolkit-update {
+    Write-Host "Verificando novidades no GitHub..." -ForegroundColor Cyan
+    try {
+        $latest = (Invoke-RestMethod -Uri "https://api.github.com/repos/Mattttfb/antigravity-vibe-coding-toolkit/releases/latest" -Headers @{"User-Agent"="PowerShell"}).tag_name
+        Write-Host "Última versão disponível: $latest" -ForegroundColor Green
+        Write-Host "Para atualizar, execute na pasta do toolkit: .\update.ps1" -ForegroundColor Yellow
+    } catch {
+        Write-Host "Não foi possível conectar ao GitHub no momento." -ForegroundColor Gray
+    }
+}
+
+Write-Host "Antigravity Dev Toolkit loaded! (Comandos: scaffold-api, scaffold-web, scaffold-cli, seed-data, tunnel, lg, check-toolkit-update)" -ForegroundColor Cyan
