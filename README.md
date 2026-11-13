@@ -87,6 +87,20 @@ Para configurar qualquer máquina Windows do zero com todas as ferramentas, bin�
    powershell -ExecutionPolicy Bypass -File .\setup.ps1
    ```
 
+### 🔄 Como Atualizar sua Máquina (Para Usuários e Outros PCs)
+
+Sempre que novas melhorias, ferramentas ou skills forem adicionadas ao repositório, basta abrir a pasta e rodar:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\update.ps1
+```
+
+O script cuidará de tudo:
+- Faz `git pull` das novidades.
+- Atualiza os pacotes e formatadores (`uv`, `ruff`, `biome`, etc.).
+- Sincroniza as novas skills para a pasta global de agentes (`~/.gemini/config/skills`).
+- Atualiza os scripts do toolkit e os atalhos do PowerShell 7.
+
 ---
 
 ## 🛠️ Ferramentas Integradas e Suas Funções
